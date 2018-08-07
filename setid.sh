@@ -27,9 +27,9 @@ done
 if [ -n "$VALUE_t" ]; then
 	sed -i "s/^temp=.*/temp=${VALUE_t}/" dht22.ini
 fi
-if [ -n "$VALUE_d" ]; then
-	sed -i "s/^humidity=.*/humidity=${VALUE_d}/" dht22.ini
-fi
 if [ -n "$VALUE_h" ]; then
-	sed -i "s/^humiditydeficit=.*/humiditydeficit=${VALUE_h}/" dht22.ini
+	sed -i "s/^humidity=.*/humidity=${VALUE_h}/" dht22.ini
+fi
+if [ -n "$VALUE_d" ]; then
+	sed -i "s/^humiditydeficit=.*/humiditydeficit=${VALUE_d}/" dht22.ini
 fi
