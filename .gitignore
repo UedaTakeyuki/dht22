@@ -1,3 +1,4 @@
 lol_dht22
 wiringPi
 *.bak
+*.pyc
