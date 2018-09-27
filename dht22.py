@@ -30,7 +30,7 @@ def dht22(gpio):
       result = {"temp":30.0, "humidity":30.0}
 
     else:
-      p = subprocess.Popen(os.path.abspath(os.path.dirname(__file__))+"/lol_dht22/loldht " + str(gpio) + " |grep Hum", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+      p = subprocess.Popen("sudo "+os.path.abspath(os.path.dirname(__file__))+"/lol_dht22/loldht " + str(gpio) + " |grep Hum", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
       std_out, std_err = p.communicate(None, timeout=20)
       result = std_out.strip()
 
