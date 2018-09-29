@@ -10,7 +10,8 @@
 # @author Dr. Takeyuki UEDA
 # @copyright Copyright© Atelier UEDA 2018 - All rights reserved.
 #
-CMD=dht22
+#CMD=dht22
+source autostart.ini
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 #echo $cwd
 
