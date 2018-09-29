@@ -8,6 +8,10 @@ usage_exit() {
   exit 1
 }
 
+if [ $# -eq 0 ]; then
+  usage_exit
+fi
+
 while getopts t:h:d: OPT
 do
   case $OPT in
@@ -25,11 +29,11 @@ do
 done
 
 if [ -n "$VALUE_t" ]; then
-	sed -i "s/^temp=.*/temp=${VALUE_t}/" dht22.ini
+	sed -i "s/^temp=.*/temp=${VALUE_t}/" send.ini
 fi
 if [ -n "$VALUE_h" ]; then
-	sed -i "s/^humidity=.*/humidity=${VALUE_h}/" dht22.ini
+	sed -i "s/^humidity=.*/humidity=${VALUE_h}/" send.ini
 fi
 if [ -n "$VALUE_d" ]; then
-	sed -i "s/^humiditydeficit=.*/humiditydeficit=${VALUE_d}/" dht22.ini
+	sed -i "s/^humiditydeficit=.*/humiditydeficit=${VALUE_d}/" send.ini
 fi
