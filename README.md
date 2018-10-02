@@ -26,7 +26,7 @@ Setup environment & install depending modules by:
 ```
 
 ## cabling
-Connect RPi & mh-z19 as:
+Connect RPi & DHT22 as:
 
 - 3.3V on RPi and "+" on DHT22
 - GND(0v) on RPi and "-" on DHT22
