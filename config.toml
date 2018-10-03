@@ -4,17 +4,23 @@
   [[sources.values]]
     name = "temp"
     handlers = [
-      "send"#import os, "save"
+      "send_monitor",
+      "handler4m2x.send_m2x",
+      #"save"
     ]
   [[sources.values]]
     name = "humidity"
     handlers = [
-      "send"#, "save"
+      "send_monitor",
+      "handler4m2x.send_m2x",
+      #"save"
     ]
   [[sources.values]]
     name = "humiditydeficit"
     handlers = [
-      "send"#, "save"
+      "send_monitor",
+      "handler4m2x.send_m2x",
+      #"save"
     ]
 
 

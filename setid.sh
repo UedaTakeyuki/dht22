@@ -29,11 +29,11 @@ do
 done
 
 if [ -n "$VALUE_t" ]; then
-	sed -i "s/^temp=.*/temp=${VALUE_t}/" send.ini
+	sed -i "s/^temp=.*/temp=${VALUE_t}/" send_monitor.ini
 fi
 if [ -n "$VALUE_h" ]; then
-	sed -i "s/^humidity=.*/humidity=${VALUE_h}/" send.ini
+	sed -i "s/^humidity=.*/humidity=${VALUE_h}/" send_monitor.ini
 fi
 if [ -n "$VALUE_d" ]; then
-	sed -i "s/^humiditydeficit=.*/humiditydeficit=${VALUE_d}/" send.ini
+	sed -i "s/^humiditydeficit=.*/humiditydeficit=${VALUE_d}/" send_monitor.ini
 fi
