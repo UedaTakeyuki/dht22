@@ -81,7 +81,8 @@ pi@raspberrypi:~/mh-z19 $ sudo python mh_z19.py
 
 The dht22.py can be work as the handler of [UedaTakeyuki/sensorhandler](https://github.com/UedaTakeyuki/sensorhandler). So, by sensorhandler, you can read the sensor values and send these to the following servers:
 
-- [MONITOR™](https://monitor.uedasoft.com/): prease refer following [steps](send_monitor.md). 
+- [MONITOR™](https://monitor.uedasoft.com/)  Detail steps for settings is available [here](send_monitor.md). 
+- [AT&T M2X](https://m2x.att.com/) Detail steps for settings is available [here](send_m2x.md). 
 
 
 ## setting for automatically read sensor values and send these to server at 5 minute interval
