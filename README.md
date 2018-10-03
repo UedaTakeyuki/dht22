@@ -77,59 +77,15 @@ pi@raspberrypi:~/mh-z19 $ sudo python mh_z19.py
 {'humiditydeficit': '12.3', 'temp': 25.2, 'humidity': 47.1}
 ```
 
-## set value_id
-Make sure your value_id on your account of the MONITOR. At the default, 3 of value_id are available, let's say that are as ABCDEF, GHIJKL, MNOPQR. In case you would use ABCDEF for making temperature chart, GHIJKL humidity chart and MNOPQR for humidity deficit, set these by setid.sh as
+## send to server
 
-```
-./setid.sh -t ABCDEF -h GHIJKL -d MNOPQR
-```
+The dht22.py can be work as the handler of [UedaTakeyuki/sensorhandler](https://github.com/UedaTakeyuki/sensorhandler). So, by sensorhandler, you can read the sensor values and send these to the following servers:
 
-In case just you would make only temeperature chart, -h and -d can be ommitted as follows:
+- [MONITOR™](https://monitor.uedasoft.com/)  Detail steps for settings is available [here](send_monitor.md). 
+- [AT&T M2X](https://m2x.att.com/) Detail steps for settings is available [here](send_m2x.md). 
 
 
-```
-./setid.sh -t ABCDEF
-```
-
-Detail syntax of ***setid.sh*** is as follow:
-
-```
-Usage: ./setid.sh [-t temp_id] [-h humidity_id] [-d humiditydeficit_id] 
-  [temp_id]:            value_id for temperature 
-  [humidity_id]:        value_id for humidity 
-  [humiditydeficit_id]: value_id for humiditydeficit 
-```
-
-## test for sending Sensor value
-
-```
-python -m sensorhandler
-```
-
-In case everythin goood, response is as follows:
-
-```
-{'humiditydeficit': '12.2', 'temp': 25.2, 'humidity': 47.6}
-temp
-send
-{"ok":true}
-humidity
-send
-{"ok":false,"reason":"ViewID not valid"}
-humiditydeficit
-send
-{"ok":true}
-```
-
-In case something wrong, response finished with {"ok":false,"reason":"XXX"}. For Example:
-
-```
-{"ok":false,"reason":"ValueID not valid"}
-```
-
-In case, you should make sure if correct value_is was set by setid.sh command.
-
-## setting for automatically run view.sh at 5 minute interval
+## setting for automatically read sensor values and send these to server at 5 minute interval
 
 You can do it both by setting crontab if you're used to do so, or you can use autostart.sh command as follow:
 
@@ -189,3 +145,6 @@ The ***setup.sh*** in this module install & setup all of these modules mentioned
 
 ## Q&A
 Any questions, suggestions, reports are welcome! Please make [issue](https://github.com/UedaTakeyuki/dht22/issues) without hesitation! 
+
+## history
+- 1.2.0  2018.10.03  ad send_m2x
