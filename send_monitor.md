@@ -59,7 +59,12 @@ Usage: ./setid.sh [-t temp_id] [-h humidity_id] [-d humiditydeficit_id]
 
 ## Read Sensor value and send it by [UedaTakeyuki/sensorhandler](https://github.com/UedaTakeyuki/sensorhandler)
 
-The dht22.py can be work as the ***handler*** of [UedaTakeyuki/sensorhandler](https://github.com/UedaTakeyuki/sensorhandler). A config file of appropriate settings to use dht22.py and to send MONITOR™ is also provided in this project as file config.toml, send_monitor.ini and send_monitor.py.
+The dht22.py can be work as the ***handler*** of [UedaTakeyuki/sensorhandler](https://github.com/UedaTakeyuki/sensorhandler). A config file of appropriate settings to use dht22.py and to send MONITOR™ is also provided in this project as following files:
+
+- config.toml
+- send_monitor.ini
+- send_monitor.py.
+
 So, you can read sensor value and send it to MONITOR™ just by calling as follows:
 
 ```
@@ -88,53 +93,3 @@ In case something wrong, response finished with {"ok":false,"reason":"XXX"}. For
 ```
 
 In case, you should make sure if correct value_is was set by setid.sh command.
-
-## setting for automatically run view.sh at 5 minute interval
-
-You can do it both by setting crontab if you're used to do so, or you can use autostart.sh command as follow:
-
-
-```
-# set autostart on
-./autostart.sh --on
-
-# set autostart off
-./autostart.sh --off
-```
-
-Tecknically speaking, autostart.sh doesn't use crontab, instead, prepare service for interval running of ***sensorhandler*** named dht22.service .
-You can confirm current status of dht22.service with following command:
-
-```
-sudo systemctl status dht22.service
-```
-
-In case dht22.service is running, you can see the log of current status and taking & sending photo as follows:
-```
-pi@raspberrypi:~/dht22 $ sudo systemctl status dht22.service 
-● dht22.service - Get temp, humid, and humiditydeficit data & Post to the monito
-   Loaded: loaded (/home/pi/dht22/dht22.service; enabled; vendor preset: enabled
-   Active: active (running) since Mon 2018-10-01 13:47:46 JST; 4h 32min ago
- Main PID: 802 (loop.sh)
-   CGroup: /system.slice/dht22.service
-           ├─ 802 /bin/bash /home/pi/dht22/loop.sh
-           └─4389 sleep 5m
-
-Oct 01 18:19:35 raspberrypi loop.sh[802]: {'humiditydeficit': '12.3', 'temp': 25
-Oct 01 18:19:35 raspberrypi loop.sh[802]: temp
-Oct 01 18:19:35 raspberrypi loop.sh[802]: send
-Oct 01 18:19:35 raspberrypi loop.sh[802]: {"ok":true}
-Oct 01 18:19:35 raspberrypi loop.sh[802]: humidity
-Oct 01 18:19:35 raspberrypi loop.sh[802]: send
-Oct 01 18:19:35 raspberrypi loop.sh[802]: {"ok":false,"reason":"ViewID not valid
-Oct 01 18:19:35 raspberrypi loop.sh[802]: humiditydeficit
-Oct 01 18:19:35 raspberrypi loop.sh[802]: send
-Oct 01 18:19:35 raspberrypi loop.sh[802]: {"ok":true}
-lines 1-18/18 (END)
-```
-
-In case afte service set as off, you can see followings:
-```
-pi@raspberrypi:~/dht22 $ sudo systemctl status dht22.service
-Unit dht22.service could not be found.
-```
