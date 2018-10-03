@@ -1,6 +1,9 @@
-# Send Sensor value to the [AT&T M2X](https://m2x.att.com/).
+# Send ｓensor value to the [AT&T M2X](https://m2x.att.com/).
 
-## What is monitor Server.
+With [M2X handler](https://github.com/UedaTakeyuki/handler4m2x) for [UedaTakeyuki/sensorhandler](https://github.com/UedaTakeyuki/sensorhandler), you can send dht22 data to AT&T M2X service without any programming, just only by setting.
+
+## setup [M2X handler](https://github.com/UedaTakeyuki/handler4m2x)
+Set up script [send_m2x.setup.sh](send_m2x.setup.sh)
 [MONITOR™](https://monitor.uedasoft.com) is a Web service to provide visualization of the sensor data. It shows the latest sent Camera Image and latest sent Sensor data as time seriese chart.
 MONITOR™ manages display parts as ***element***. There are fllowing 2 type of element:
 
