@@ -1,4 +1,4 @@
-# Send Sensor value to the MONITOR™ server.
+# Send Sensor value to the [AT&T M2X](https://m2x.att.com/).
 
 ## What is monitor Server.
 [MONITOR™](https://monitor.uedasoft.com) is a Web service to provide visualization of the sensor data. It shows the latest sent Camera Image and latest sent Sensor data as time seriese chart.
