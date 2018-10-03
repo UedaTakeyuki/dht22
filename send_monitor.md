@@ -57,7 +57,10 @@ Usage: ./setid.sh [-t temp_id] [-h humidity_id] [-d humiditydeficit_id]
   [humiditydeficit_id]: value_id for humiditydeficit 
 ```
 
-## test for sending Sensor value
+## Read Sensor value and send it by [UedaTakeyuki/sensorhandler](https://github.com/UedaTakeyuki/sensorhandler)
+
+The dht22.py can be work as the ***handler*** of [UedaTakeyuki/sensorhandler](https://github.com/UedaTakeyuki/sensorhandler). A config file of appropriate settings to use dht22.py and to send MONITOR™ is also provided in this project as file config.toml, send_monitor.ini and send_monitor.py.
+So, you can read sensor value and send it to MONITOR™ just by calling as follows:
 
 ```
 python -m sensorhandler
