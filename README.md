@@ -189,3 +189,6 @@ The ***setup.sh*** in this module install & setup all of these modules mentioned
 
 ## Q&A
 Any questions, suggestions, reports are welcome! Please make [issue](https://github.com/UedaTakeyuki/dht22/issues) without hesitation! 
+
+## history
+- 1.2.0  2018.10.03  ad send_m2x
