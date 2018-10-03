@@ -5,29 +5,17 @@
     name = "temp"
     handlers = [
       "send_monitor",
-      "handler4m2x.send_m2x",
-      #"save"
+#      "handler4m2x.send_m2x",
     ]
   [[sources.values]]
     name = "humidity"
     handlers = [
       "send_monitor",
-      "handler4m2x.send_m2x",
-      #"save"
+#      "handler4m2x.send_m2x",
     ]
   [[sources.values]]
     name = "humiditydeficit"
     handlers = [
       "send_monitor",
-      "handler4m2x.send_m2x",
-      #"save"
+#      "handler4m2x.send_m2x",
     ]
-
-
-#[[sources]]
-#  name   = "mh-z19"
-#  [[sources.values]]
-#    name = "co2"
-#    handlers = [
-#      "send", "save"
-#  ]
