@@ -6,6 +6,7 @@ Read Temperature and Rerative Humidity from dht22 (another name AM2302) sensor, 
 DHT22 (another name AM2302) sensor module is inexpensive Temperature & Humidity sensor module. DataSheet is available [here](https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf).
 
 The original sensor module has thin ***4 pin*** for implement on the board. So you need some electronic works to use it. You can buy the original module by <a target="_self" href="http://rover.ebay.com/rover/1/711-53200-19255-0/1?icep_ff3=2&pub=5575391936&toolid=10001&campid=5338390482&customid=&icep_item=181922128912&ipn=psmain&icep_vectorid=229466&kwid=902099&mtid=824&kw=lg">eBay</a><img style="text-decoration:none;border:0;padding:0;margin:0;" src="http://rover.ebay.com/roverimp/1/711-53200-19255-0/1?ff3=2&pub=5575391936&toolid=10001&campid=5338390482&customid=&item=181922128912&mpt=[CACHEBUSTER]"> about 3$.
+
 ![dht22 breakout](https://4.bp.blogspot.com/-TniTXhOq8Zw/W7LDE7PpiSI/AAAAAAAABZc/D7el9KKklQkqnr0s8TmnpZqqcp7sTU1fwCEwYBhgL/s1600/2018-10-02%2B09.45.28.jpg)
 
 In case you woudn't like soldering, my recommendation is using pre-implemented breakout board which you can buy it by <a target="_self" href="http://rover.ebay.com/rover/1/711-53200-19255-0/1?icep_ff3=2&pub=5575391936&toolid=10001&campid=5338390482&customid=&icep_item=191964438524&ipn=psmain&icep_vectorid=229466&kwid=902099&mtid=824&kw=lg">eBay</a><img style="text-decoration:none;border:0;padding:0;margin:0;" src="http://rover.ebay.com/roverimp/1/711-53200-19255-0/1?ff3=2&pub=5575391936&toolid=10001&campid=5338390482&customid=&item=191964438524&mpt=[CACHEBUSTER]"> almost same price as original module.
@@ -64,6 +65,9 @@ Followings are example of cabling, but you can free to use other 5v and 0v Pin o
                    +-----+-----+---------+------+---+---Pi B+--+---+------+---------+-----+-----+
 ```
 
+![dht22](https://1.bp.blogspot.com/-SufWREq2L5k/W7LP6lOBUqI/AAAAAAAABaM/dLdloQ2Pm7UaXN772V1q0KzBtcuFj87cwCLcBGAs/s1600/2018-10-02%2B10.53.13.jpg)
+
+![RPi](https://4.bp.blogspot.com/-iXRnFPfCA2s/W7LCfHJkjgI/AAAAAAAABZI/LbuQs3p3Y0Mhc_Wac0x8z4vv6wneHboWACEwYBhgL/s1600/2018-10-02%2B09.42.42.jpg)
 
 ## test for getting Sensor value
 
