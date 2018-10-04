@@ -2,73 +2,103 @@
 
 With [M2X handler](https://github.com/UedaTakeyuki/handler4m2x) for [UedaTakeyuki/sensorhandler](https://github.com/UedaTakeyuki/sensorhandler), you can send dht22 data to AT&T M2X service without any programming, just only by setting.
 
-## setup [M2X handler](https://github.com/UedaTakeyuki/handler4m2x)
-Set up script [send_m2x.setup.sh](send_m2x.setup.sh)
-[MONITOR™](https://monitor.uedasoft.com) is a Web service to provide visualization of the sensor data. It shows the latest sent Camera Image and latest sent Sensor data as time seriese chart.
-MONITOR™ manages display parts as ***element***. There are fllowing 2 type of element:
-
-- ***view element*** for ***Camera Image***
-- ***value element*** for ***Sensor Value***
-
-![MONITOR display](https://monitor.uedasoft.com/docs/UserGuide/pics/2018-08-19.12.42.14-2.png)
-
-Each element has a ***element id***, to specify a element.
-
-## activate 3 of value element
-As default, only a view element is active and all value elements are inavctive. 
-Go to [MONITOR™](https://monitor.uedasoft.com), then open Elemens menu.
-
-![Element Menu](https://monitor.uedasoft.com/docs/UserGuide/pics/2018-09-03.16.32.56.png)
-
- At first,  only one  View Element is active
-
-![Element Menu](https://monitor.uedasoft.com/docs/UserGuide/pics/2018-09-03.16.33.08.png)
-
-Change one of your  Value Element  to Active  and Save this setting. 
-
-![Element Menu](https://3.bp.blogspot.com/-x2vZCv-46kE/W7LYqIAdCLI/AAAAAAAABaw/iLf0K_Sol00-TK68qOFjRNDIoH2St_RmQCEwYBhgL/s320/%25E3%2582%25B9%25E3%2582%25AF%25E3%2583%25AA%25E3%2583%25BC%25E3%2583%25B3%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%2583%25E3%2583%2588%2B2018-10-02%2B11.31.37.png)
-
-Then, blank Value Element will soon open.
-
-![Element Menu](https://monitor.uedasoft.com/docs/UserGuide/pics/2018-09-03.16.34.12.png)
-
-Keep these 3 of "value_id" to post the Sensor Data to this.
-
-![Element Menu](https://monitor.uedasoft.com/docs/UserGuide/pics/2018-09-03.16.34.12-2.png)
-
-
-## set value_id
-Make sure your value_id on your account of the MONITOR. At the default, 3 of value_id are available, let's say that are as ABCDEF, GHIJKL, MNOPQR. In case you would use ABCDEF for making temperature chart, GHIJKL humidity chart and MNOPQR for humidity deficit, set these by setid.sh as
+## install [M2X handler](https://github.com/UedaTakeyuki/handler4m2x)
+Set up script [send_m2x.setup.sh](send_m2x.setup.sh) in this project do all necessary instration task. Go to the folder where dht22 is installed, and call this script.
 
 ```
-./setid.sh -t ABCDEF -h GHIJKL -d MNOPQR
+cd dht22
+./send_m2x.setup.sh
 ```
 
-In case just you would make only temeperature chart, -h and -d can be ommitted as follows:
+## edit [config.toml](config.toml)
+The [config.toml](config.toml) file in this project is just for MONITOR™ server like these :
+```
+[[sources]]
+  name   = "dht22"
+  errorhandler = "errorhandler"
+  [[sources.values]]
+    name = "temp"
+    handlers = [
+      "send_monitor",
+#      "handler4m2x.send_m2x",
+    ]
+  [[sources.values]]
+    name = "humidity"
+    handlers = [
+      "send_monitor",
+#      "handler4m2x.send_m2x",
+    ]
+  [[sources.values]]
+    name = "humiditydeficit"
+    handlers = [
+      "send_monitor",
+#      "handler4m2x.send_m2x",
+    ]
+```
 
+In order to enabling [M2X handler](https://github.com/UedaTakeyuki/handler4m2x), remove "#" character which is for commnet out "handler4m2x.send_m2x" line. And comment out "send_monitor" if you wouldn't send to the MONITOR at the same time.
+After this, config.toml file might be as follows:
 
 ```
-./setid.sh -t ABCDEF
+[[sources]]
+  name   = "dht22"
+  errorhandler = "errorhandler"
+  [[sources.values]]
+    name = "temp"
+    handlers = [
+#      "send_monitor",
+      "handler4m2x.send_m2x",
+    ]
+  [[sources.values]]
+    name = "humidity"
+    handlers = [
+#      "send_monitor",
+      "handler4m2x.send_m2x",
+    ]
+  [[sources.values]]
+    name = "humiditydeficit"
+    handlers = [
+#      "send_monitor",
+      "handler4m2x.send_m2x",
+    ]
 ```
 
-Detail syntax of ***setid.sh*** is as follow:
+## Set M2X API-KEY, DEVICE, STREAMS on the send_m2x.ini file
+Go to your M2X Developper page, create your DEVICE, API-KEY, and 3 of STREAMs for temperature, rerative humidity and humidity deficit.
+The necessary ACCESS of API-KEY for this is just "GET" and "PUT".
+Then, go to handler4m2x folder and edit send_m2x.ini file. Originally, send_m2x.ini file must be as follows:
 
 ```
-Usage: ./setid.sh [-t temp_id] [-h humidity_id] [-d humiditydeficit_id] 
-  [temp_id]:            value_id for temperature 
-  [humidity_id]:        value_id for humidity 
-  [humiditydeficit_id]: value_id for humiditydeficit 
+[stream]
+temp=
+humidity=
+humiditydeficit=
+
+[client]
+key=
+
+[device]
+key=
 ```
 
-## Read Sensor value and send it by [UedaTakeyuki/sensorhandler](https://github.com/UedaTakeyuki/sensorhandler)
+So, fill your M2X STREAMs in [stream] section, your API-KEY in [client] section and DEVICE in [device] section like as follows:
 
-The dht22.py can be work as the ***handler*** of [UedaTakeyuki/sensorhandler](https://github.com/UedaTakeyuki/sensorhandler). A config file of appropriate settings to use dht22.py and to send MONITOR™ is also provided in this project as following files:
+```
+[stream]
+temp=my-room-temperature
+humidity=my-room-humidity
+humiditydeficit=my-room-humidiydeficit
 
-- config.toml
-- send_monitor.ini
-- send_monitor.py.
+[client]
+key=123456749fb8eaaa669ebeb3b95f8c83
 
-So, you can read sensor value and send it to MONITOR™ just by calling as follows:
+[device]
+key=54321aa81bdedadb72bbbff76d85020a
+```
+
+## Read Sensor value and send it to M2X
+
+Go up to the folder where dht22 is installed, call sensorhandler 
 
 ```
 python -m sensorhandler
@@ -77,16 +107,17 @@ python -m sensorhandler
 In case everythin goood, response is as follows:
 
 ```
-{'humiditydeficit': '12.2', 'temp': 25.2, 'humidity': 47.6}
+pi@raspberrypi:~/dht22 $ python -m sensorhandler
+{'humiditydeficit': '12.6', 'temp': 26.7, 'humidity': 50.2}
 temp
-send
-{"ok":true}
+handler4m2x.send_m2x
+{u'status': u'accepted'}
 humidity
-send
-{"ok":false,"reason":"ViewID not valid"}
+handler4m2x.send_m2x
+{u'status': u'accepted'}
 humiditydeficit
-send
-{"ok":true}
+handler4m2x.send_m2x
+{u'status': u'accepted'}
 ```
 
 In case something wrong, response finished with {"ok":false,"reason":"XXX"}. For Example:
