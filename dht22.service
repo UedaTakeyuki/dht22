@@ -3,7 +3,7 @@
 Description=Get temp, humid, and humiditydeficit data & Post to the monitor
 After=rc-local.service
 [Service]
-ExecStart=/home/pi/dht22/loop.sh
+ExecStart=/home/pi/SCRIPT/dht22/loop.sh
 Restart=always
 #RestartSec=90
 RestartSec=30
