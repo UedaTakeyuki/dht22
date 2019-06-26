@@ -13,7 +13,7 @@ from urllib3.exceptions import InsecureRequestWarning
 urllib3.disable_warnings(InsecureRequestWarning)
 
 # Const
-configfile = os.path.dirname(os.path.abspath(__file__))+'/send2monitor.ini'
+configfile = os.path.dirname(os.path.abspath(__file__))+'/send_monitor.ini'
 
 # get settings
 ini = ConfigParser.SafeConfigParser()

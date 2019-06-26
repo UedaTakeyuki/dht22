@@ -5,10 +5,12 @@
     handlers = [
       "send_monitor"
     ]
+  [[sensors.values]]
     name = "humidity"
     handlers = [
       "send_monitor"
     ]
+  [[sensors.values]]
     name = "humiditydeficit"
     handlers = [
       "send_monitor"
