@@ -1,21 +1,15 @@
-[[sources]]
-  name   = "dht22"
-  errorhandler = "errorhandler"
-  [[sources.values]]
+[[sensors]]
+  handler = "dht22"
+  [[sensors.values]]
     name = "temp"
     handlers = [
-      "send_monitor",
-#      "handler4m2x.send_m2x",
+      "send_monitor"
     ]
-  [[sources.values]]
     name = "humidity"
     handlers = [
-      "send_monitor",
-#      "handler4m2x.send_m2x",
+      "send_monitor"
     ]
-  [[sources.values]]
     name = "humiditydeficit"
     handlers = [
-      "send_monitor",
-#      "handler4m2x.send_m2x",
+      "send_monitor"
     ]
