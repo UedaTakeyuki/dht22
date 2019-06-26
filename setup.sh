@@ -32,4 +32,4 @@ cd ..
 
 # python module dependency
 sudo apt-get install python-pip
-sudo pip install subprocess32 requests sensorhandler pytoml
+sudo pip install subprocess32 requests sensorhandler pytoml pondslider error_counter

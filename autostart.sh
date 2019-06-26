@@ -23,7 +23,8 @@ usage_exit(){
 }
 
 on(){
-	sed -i "s@^ExecStart=.*@ExecStart=${SCRIPT_DIR}/loop.sh@" ${CMD}.service
+	sed -i "s@^WorkingDirectory=.*@WorkingDirectory=${SCRIPT_DIR}@" ${CMD}.service
+#	sed -i "s@^ExecStart=.*@ExecStart=${SCRIPT_DIR}/loop.sh@" ${CMD}.service
 #	sudo ln -s ${SCRIPT_DIR}\/${CMD}.service /etc/systemd/system/${CMD}.service
 	sudo cp ${SCRIPT_DIR}\/${CMD}.service /etc/systemd/system/${CMD}.service
 	sudo systemctl daemon-reload
