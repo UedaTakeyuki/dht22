@@ -4,6 +4,10 @@
 #
 #   required time: about 10 minutes on RPi 3B+
 
+# update
+# https://www.raspberrypi.org/forums/viewtopic.php?p=1497364
+sudo apt update
+
 # git
 sudo apt-get install git-core
 
