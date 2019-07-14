@@ -24,6 +24,7 @@ git clone https://github.com/UedaTakeyuki/dht22.git
 Setup environment & install depending modules by:
 
 ```
+cd dht22
 ./setup.sh 
 ```
 
