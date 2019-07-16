@@ -79,7 +79,7 @@ python dht22.py
 In case succeeded, espected response is as follows:
 
 ```
-pi@raspberrypi:~/mh-z19 $ sudo python mh_z19.py
+pi@raspberrypi:~/dht22 $ python -m dht22
 {'humiditydeficit': '12.3', 'temp': 25.2, 'humidity': 47.1}
 ```
 
