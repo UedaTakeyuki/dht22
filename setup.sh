@@ -19,10 +19,13 @@ sudo apt-get install autoconf automake libtool
 #
 # WireingPi
 #
-git clone git://git.drogon.net/wiringPi
-cd wiringPi
-./build
-cd ..
+# refer http://wiringpi.com/download-and-install/
+#
+#git clone git://git.drogon.net/wiringPi
+#cd wiringPi
+#./build
+#cd ..
+sudo apt-get install wiringpi
 
 #
 # lol_dht22: Setup to use dht22 on Raspbian
