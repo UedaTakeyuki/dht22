@@ -4,9 +4,9 @@ Description=Get temp, humid, and humiditydeficit data & Post to the monitor
 After=rc-local.service
 
 [Service]
-WorkingDirectory=/home/pi/SCRIPT/dht22
+WorkingDirectory=/home/pi/dht22
 #ExecStart=/home/pi/SCRIPT/dht22/loop.sh
-ExecStart=/usr/bin/sudo /usr/bin/python -m pondslider --interval 5
+ExecStart=/usr/bin/sudo /usr/bin/python3 -m pondslider --interval 5
 Restart=always
 #RestartSec=90
 RestartSec=30

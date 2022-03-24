@@ -7,7 +7,7 @@
 
 import os
 import sys
-import ConfigParser
+import configparser
 import subprocess32 as subprocess
 import re
 import json
@@ -20,7 +20,7 @@ urllib3.disable_warnings(InsecureRequestWarning)
 
 # get configration
 configfile = os.path.dirname(os.path.abspath(__file__))+'/'+os.path.splitext(os.path.basename(__file__))[0]+'.ini'
-ini = ConfigParser.SafeConfigParser()
+ini = configparser.ConfigParser()
 ini.read(configfile)
 
 def dht22(gpio):
@@ -35,7 +35,7 @@ def dht22(gpio):
       result = std_out.strip()
 
       # read result
-      match = re.match(r'Humidity = (.*) % Temperature = (.*) \*C',result)
+      match = re.match(r'Humidity = (.*) % Temperature = (.*) \*C',result.decode('utf-8'))
       temp = float(match.group(2))
       humidity =float(match.group(1))
 

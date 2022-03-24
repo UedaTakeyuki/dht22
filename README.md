@@ -154,3 +154,4 @@ Any questions, suggestions, reports are welcome! Please make [issue](https://git
 
 ## history
 - 1.2.0  2018.10.03  ad send_m2x
+- 1.3.0  2022.03.24  python3 support

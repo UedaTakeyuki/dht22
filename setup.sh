@@ -25,7 +25,14 @@ sudo apt-get install autoconf automake libtool
 #cd wiringPi
 #./build
 #cd ..
-sudo apt-get install wiringpi
+
+#sudo apt-get install wiringpi
+
+mkdir -p ./wiringPi
+cd wiringPi
+wget https://project-downloads.drogon.net/wiringpi-latest.deb
+sudo dpkg -i wiringpi-latest.deb
+cd ..
 
 #
 # lol_dht22: Setup to use dht22 on Raspbian
@@ -38,5 +45,5 @@ make
 cd ..
 
 # python module dependency
-sudo apt-get install python-pip
-sudo pip install subprocess32 requests sensorhandler pytoml pondslider error_counter
+sudo apt-get install python3-pip
+sudo pip3 install subprocess32 requests sensorhandler pytoml pondslider error_counter
