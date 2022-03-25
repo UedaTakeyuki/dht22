@@ -31,7 +31,8 @@ def dht22(gpio):
 
     else:
       p = subprocess.Popen("sudo "+os.path.abspath(os.path.dirname(__file__))+"/lol_dht22/loldht " + str(gpio) + " |grep Hum", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-      std_out, std_err = p.communicate(None, timeout=20)
+#      std_out, std_err = p.communicate(None, timeout=20)
+      std_out, std_err = p.communicate(None, timeout=60) # extend timeout time
       result = std_out.strip()
 
       # read result
@@ -42,9 +43,14 @@ def dht22(gpio):
       # drop bad value.
       if temp < -1000  or temp > 1000:
         temp = None
+        print("temp: None")
       if humidity < -1000 or humidity > 1000:
         humidity = None
-      result = {"temp":temp, "humidity":humidity}
+        print("humidity: None")
+      if temp == 0 and humidity == 0:
+        result = {}
+      else:
+        result = {"temp":temp, "humidity":humidity}
     return result
   except IOError:
     info=sys.exc_info()
