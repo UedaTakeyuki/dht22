@@ -45,5 +45,6 @@ make
 cd ..
 
 # python module dependency
-sudo apt-get install python3-pip
+sudo apt-get install python-pip python3-pip
+sudo pip2 install subprocess32 requests sensorhandler pytoml pondslider error_counter
 sudo pip3 install subprocess32 requests sensorhandler pytoml pondslider error_counter
