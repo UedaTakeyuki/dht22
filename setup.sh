@@ -45,6 +45,9 @@ make
 cd ..
 
 # python module dependency
-sudo apt-get install python-pip python3-pip
-sudo pip2 install subprocess32 requests sensorhandler pytoml pondslider error_counter
-sudo pip3 install subprocess32 requests sensorhandler pytoml pondslider error_counter
+sudo apt-get install python3-pip
+sudo pip3 install subprocess32 requests sensorhandler pytoml pondslider error_counter --break-system-packages
+if [ ${cat /etc/debian_version} -lt 11 ] ; then
+  sudo apt-get install python-pip
+  sudo pip2 install subprocess32 requests sensorhandler pytoml pondslider error_counter
+fi

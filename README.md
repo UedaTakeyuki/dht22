@@ -73,13 +73,13 @@ Followings are example of cabling, but you can free to use other 5v and 0v Pin o
 ## test for getting Sensor value
 
 ```
-python dht22.py
+python3 dht22.py
 ```
 
 In case succeeded, espected response is as follows:
 
 ```
-pi@raspberrypi:~/dht22 $ python -m dht22
+pi@raspberrypi:~/dht22 $ python3 -m dht22
 {'humiditydeficit': '12.3', 'temp': 25.2, 'humidity': 47.1}
 ```
 
@@ -155,3 +155,4 @@ Any questions, suggestions, reports are welcome! Please make [issue](https://git
 ## history
 - 1.2.0  2018.10.03  ad send_m2x
 - 1.3.0  2022.03.24  python3 support
+- 1.4.0  2023.11.13  Don't install python2-pip if OS version is BullsEye or later.
